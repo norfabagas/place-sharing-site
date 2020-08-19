@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
+      <h2 class="text-center">Log In</h2>
+
+        <%= form_for(resource,
+                    as: resource_name,
+                    url: session_path(resource_name)) do |f| %>
+
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <%= f.email_field :email,
+                            autofocus: true,
+                            class: 'form-control',
+                            placeholder: 'email' %>
+
+          <%= f.password_field  :password,
+                                autocomplete: 'off',
+                                class: 'form-control',
+                                placeholder: 'password' %>
+
+          <% if devise_mapping.rememberable? %>
+            <%= f.check_box :remember_me %> Remember me
+          <% end -%>
+
+          <%= f.submit "Log in", class: 'form-control btn btn-success login-button' %>
+
+          <%= render "devise/shared/links" %>
+
+        <% end %>
+
+    </div>
+  </div>
