@@ -23,7 +23,11 @@ default: &default
 
 development:
   <<: *default
-  database: place_sharing_development
+  database: <%= ENV.fetch("DB_DATABASE_DEV") %>
+  username: <%= ENV.fetch("DB_USERNAME_DEV") %>
+  password: <%= ENV.fetch("DB_PASSWORD_DEV") %>
+  host: <%= ENV.fetch("DB_HOST_DEV") %>
+  port: <%= ENV.fetch("DB_PORT_DEV") %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +61,11 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: place_sharing_test
+  database: <%= ENV.fetch("DB_DATABASE_TEST") %>
+  username: <%= ENV.fetch("DB_USERNAME_TEST") %>
+  password: <%= ENV.fetch("DB_PASSWORD_TEST") %>
+  host: <%= ENV.fetch("DB_HOST_TEST") %>
+  port: <%= ENV.fetch("DB_PORT_TEST") %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +88,9 @@ test:
 #
 production:
   <<: *default
-  database: place_sharing_production
-  username: place_sharing
-  password: <%= ENV['PLACE_SHARING_DATABASE_PASSWORD'] %>
+  database: <%= ENV.fetch("DB_DATABASE_PROD") %>
+  username: <%= ENV.fetch("DB_USERNAME_PROD") %>
+  password: <%= ENV.fetch("DB_PASSWORD_PROD") %>
+  host: <%= ENV.fetch("DB_HOST_PROD") %>
+  port: <%= ENV.fetch("DB_PORT_PROD") %>
+  
