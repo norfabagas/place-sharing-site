@@ -1,0 +1,12 @@
+<div class="container">
+  <br>
+  <h4>Your Profile</h4>
+  <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-info' %>
+  <br>
+  <%= render partial: 'pages/profile_card', :locals => { user: @user } %>
+</div>
+
+<hr>
+<div class="container">
+  <%= render partial: 'pages/places', :locals => { places: @user.places, has_pagination: false } %>
+</div>
