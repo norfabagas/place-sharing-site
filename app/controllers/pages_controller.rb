@@ -44,4 +44,10 @@ class PagesController < ApplicationController
     following = Follow.where('follower_id = ?', current_user.id).pluck(:following_id)
     @places = Place.where(:user_id => following).order('created_at DESC').page
   end
+
+  def find_users
+    following = Follow.where('follower_id = ?', current_user.id).pluck(:following_id)
+    following.push(current_user.id)
+    @users = User.where.not(id: following)
+  end
 end

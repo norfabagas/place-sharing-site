@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/profile', to: 'pages#user', as: 'user_page'
   post '/follow_or_unfollow', to: 'pages#follow_or_unfollow', as: 'follow_or_unfollow'
   get '/following', to: 'pages#following', as: 'following'
+  get '/find-users', to: 'pages#find_users', as: 'find_users'
 
   # place this url below for non-ambiguous routing
   get '/:username', to: 'pages#profile', as: 'profile_page'

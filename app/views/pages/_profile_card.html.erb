@@ -1,6 +1,10 @@
 <div class="card">
   <div class="card-title">
-    <h5><%= user.name %></h5>
+    <% if request.path == '/find-users' %>
+      <h5><%= get_profile user.username %></h5>
+    <% else %>
+      <h5><%= user.name %></h5>
+    <% end %>
   </div>
 
   <div class="card-subtitle text-muted">
