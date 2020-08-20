@@ -1,0 +1,16 @@
+<div class="container">
+  <% @places.each do |place| %>
+  <div class="card">
+    <div class="card-title">
+      <%= place.description %>
+    </div>
+    <div class="card-body">
+      <%= place.lat %>
+      <%= place.long %>
+    </div>
+    <div class="card-footer">
+      Shared by: <%= place.user.name %> <%= get_informative_time(place.created_at) %>
+    </div>
+  </div>
+  <% end %>
+</div> <!-- container -->

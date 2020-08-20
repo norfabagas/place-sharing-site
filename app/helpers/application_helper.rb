@@ -1,5 +1,6 @@
 require 'navigation_helper'
+require 'pages_helper'
 
 module ApplicationHelper
-  include NavigationHelper
+  include NavigationHelper, PagesHelper
 end
