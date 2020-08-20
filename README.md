@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Place-Sharing Rails application
 
-Things you may want to cover:
+Requirements specification:
 
-* Ruby version
+### Ruby version:
+- 2.7.1
 
-* System dependencies
+### Rails version:
+- 6
 
-* Configuration
+### System dependencies
+- yarn (^1.22.4)
+- bundle (^2.1.4)
 
-* Database creation
+### Configuration
+- Clone this repository
+- Copy .env.example and paste it as .env
+- Fill in all required credentials (DB name, username, password, host, port for [dev, test, prod])
+- Run `bundle install` to install all required libraries
+- Run `yarn install` to add all required libraries
 
-* Database initialization
+### Database creation
+- Before running the app, create the database first (`rake db:create`)
 
-* How to run the test suite
+### Database initialization
+- Migrate all tables (`rake db:migrate`)
+- Seed all required data (`rake db:seed`)
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### How to run the test suite
+- This app uses RSpec for unit testing
+- Execute `rspec` or `bundle exec rspec` to run all unit tests defined here
