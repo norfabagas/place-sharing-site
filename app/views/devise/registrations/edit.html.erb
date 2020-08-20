@@ -9,9 +9,19 @@
 
           <%= render "devise/shared/error_messages", resource: resource %>
 
+          <em>Email</em>
           <%= f.email_field :email, 
                             autofocus: true, 
                             autocomplete: "email",
+                            class: "form-control" %>
+          <br><em>Name</em>
+          <%= f.text_field :name,  
+                            autocomplete: "name",
+                            class: "form-control" %>
+          
+          <br><em>Username</em>
+          <%= f.text_field :username,  
+                            autocomplete: "username",
                             class: "form-control" %>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
