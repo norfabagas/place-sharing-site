@@ -1,5 +1,5 @@
 <% places.each do |place| %>
-  <% if place.user.id != current_user.id && !place.subscriber.include?(current_user.id) %>
+  <% if (place.user.id != current_user.id && !place.subscriber.include?(current_user.id)) %>
     <% next %>
   <% else %>
     <div class="card post-grid">

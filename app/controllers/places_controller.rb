@@ -12,10 +12,6 @@ class PlacesController < ApplicationController
       ids.push(index.to_i)
     end
 
-    if ids.count < 1
-      ids = User.where.not(:id => current_user.id).pluck(:id)
-    end
-
     @place = current_user.places.new(place_params)
 
     @place.subscriber = ids
