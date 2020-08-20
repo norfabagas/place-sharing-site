@@ -14,8 +14,10 @@ class Place < ApplicationRecord
   validates :description, presence: true
 
   def set_subscriber
-    if self.subscriber.count < 1 || self.subscriber.nil?
-      self.subscriber = User.where.not(:id => self.user_id).pluck(:id)
+    if !self.subscriber.nil?
+      if self.subscriber.count < 1 || self.subscriber.nil?
+        self.subscriber = User.where.not(:id => self.user_id).pluck(:id)
+      end
     end
   end
 end
