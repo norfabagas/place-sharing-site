@@ -55,6 +55,25 @@ RSpec.describe Place, :type => :model do
     })
     expect(place).to_not be_valid
   end
+  
+  it "is not valid without well-formatted lat" do
+    User.destroy_all
+  
+    user = User.create({
+      name: 'test',
+      username: 'test',
+      email: 'test@mail.com',
+      password: 'test123'
+    })
+
+    place = Place.create({
+      description: 'abc',
+      lat: 'abc',
+      long: 1,
+      user_id: user.id
+    })
+    expect(place).to_not be_valid
+  end
 
   it "is not valid without a long" do
     User.destroy_all
@@ -68,7 +87,26 @@ RSpec.describe Place, :type => :model do
 
     place = Place.create({
       description: 'abc',
+      lat: '1',
+      user_id: user.id
+    })
+    expect(place).to_not be_valid
+  end
+  
+  it "is not valid without well-formatted long" do
+    User.destroy_all
+  
+    user = User.create({
+      name: 'test',
+      username: 'test',
+      email: 'test@mail.com',
+      password: 'test123'
+    })
+
+    place = Place.create({
+      description: 'abc',
       lat: 'abc',
+      long: 1,
       user_id: user.id
     })
     expect(place).to_not be_valid
@@ -83,7 +121,7 @@ RSpec.describe Place, :type => :model do
       email: 'test@mail.com',
       password: 'test123'
     })
-    
+
     place = Place.create({
       description: 'abc',
       lat: 'abc',
