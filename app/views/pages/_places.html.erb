@@ -1,0 +1,19 @@
+<% places.each do |place| %>
+<div class="card post-grid">
+  <div class="card-title">
+    <h5>
+    <%= place.description %>
+    </h5>
+  </div>
+  <div class="card-body">
+    <%= place.lat %>
+    <%= place.long %>
+  </div>
+  <div class="card-footer">
+    Shared by: <%= get_profile place.user.username %> <%= get_informative_time(place.created_at) %>
+  </div>
+</div>
+<% end %>
+<% if has_paginate %>
+  <%= paginate places %>
+<%end %>

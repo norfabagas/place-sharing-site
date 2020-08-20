@@ -1,0 +1,38 @@
+<div class="container">
+  <br>
+  <h4>Profile Information</h4>
+  <br>
+  <div class="card">
+    <div class="card-title">
+      <h5><%= @user.name %></h5>
+    </div>
+
+    <div class="card-subtitle text-muted">
+      Username: <%= @user.username %>
+    </div>
+
+    <div class="card-body">
+      <table class="table">
+        <tr>
+          <td>Email</td>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <td>Join date</td>
+          <td><%= @user.created_at.strftime("%Y-%m-%d") %></td>
+        </tr>
+        <tr>
+          <td>Shared Places</td>
+          <td><%= @user.places.count %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="container">
+  <h4>Places Shared</h4>
+  
+  <%= render partial: 'pages/places', :locals => { places: @user.places.page, has_paginate: true } %>
+</div>

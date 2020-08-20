@@ -1,18 +1,3 @@
 <div class="container">
-  <% @places.each do |place| %>
-  <div class="card post-grid">
-    <div class="card-title">
-      <%= place.description %>
-    </div>
-    <div class="card-body">
-      <%= place.lat %>
-      <%= place.long %>
-    </div>
-    <div class="card-footer">
-      Shared by: <%= place.user.username %> <%= get_informative_time(place.created_at) %>
-    </div>
-  </div>
-  <% end %>
-
-  <%= paginate @places %>
+  <%= render partial: 'pages/places', :locals => { :places => @places, :has_pagination => true } %>
 </div> <!-- container -->

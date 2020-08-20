@@ -6,4 +6,12 @@ module PagesHelper
       "at #{datetime.strftime("%Y/%m/%d")}"
     end
   end
+
+  def get_profile(username)
+    if username == current_user.username
+      "you"
+    else
+      link_to "#{username}", profile_page_path(username: username)
+    end
+  end
 end
