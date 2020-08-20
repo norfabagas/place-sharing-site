@@ -3,7 +3,7 @@
 
   <div class="card-title">
     <h5>
-      <%= link_to "#{place.description}", place_path(place) %>
+      <a href="<%= place_path(place) %>" data-turbolinks="false"><%= place.description %></a>
     </h5>
   </div>
 
