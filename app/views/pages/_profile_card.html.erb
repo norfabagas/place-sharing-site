@@ -21,6 +21,14 @@
         <td>Shared Places</td>
         <td><%= user.places.count %></td>
       </tr>
+      <tr>
+        <td>Following</td>
+        <td><%= Follow.where('follower_id = ?', user.id).count %></td>
+      </tr>
+      <tr>
+        <td>Followers</td>
+        <td><%= Follow.where('following_id = ?', user.id).count %></td>
+      </tr>
     </table>
   </div>
 </div>
