@@ -39,4 +39,9 @@ class PagesController < ApplicationController
 
     return redirect_to url_path, notice: msg
   end
+
+  def following
+    following = Follow.where('follower_id = ?', current_user.id).pluck(:following_id)
+    @places = Place.where(:user_id => following).order('created_at DESC').page
+  end
 end

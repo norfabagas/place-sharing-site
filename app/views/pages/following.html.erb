@@ -1,0 +1,9 @@
+<div class="container">
+  <br>
+  <h4>Your Feeds:</h4>
+  <% if @places.count > 0%>
+    <%= render partial: 'pages/places', :locals => { places: @places, has_pagination: true } %>
+  <% else %>
+    You are not following anyone. Click <%= link_to "here", root_path %> to explore more users
+  <% end %>
+</div>
