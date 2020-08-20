@@ -17,9 +17,9 @@ Requirements specification:
 ### Configuration
 - Clone this repository
 - Copy .env.example and paste it as .env
-- Fill in all required credentials (DB name, username, password, host, port for [dev, test, prod])
+- Fill in all required credentials (DB name, username, password, host, port for [dev, test, prod], GOOGLE_API_KEY)
 - Run `bundle install` to install all required libraries
-- Run `yarn install` to add all required libraries
+- Run `yarn install` and `yarn install --check-files` (if needed) to add all required libraries
 
 ### Database creation
 - Before running the app, create the database first (`rake db:create`)
@@ -31,3 +31,6 @@ Requirements specification:
 ### How to run the test suite
 - This app uses RSpec for unit testing
 - Execute `rspec` or `bundle exec rspec` to run all unit tests defined here
+
+### Run the application
+- Run `rails s` and open localhost:3000 on web browser
