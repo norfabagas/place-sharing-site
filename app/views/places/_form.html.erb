@@ -1,0 +1,34 @@
+<div class="container">
+  <%= form_with model: @place do |f| %>
+
+    <% if @place.errors.any? %>
+      <div id="error_explanation">
+        <h5><%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:</h5>
+    
+        <ul>
+        <% @place.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.text_field :description,
+                     autofocus: true,
+                     class: 'form-control',
+                     placeholder: 'description' %>
+
+    <br><em>Latitude & Longitude</em>
+    <%= f.text_field :lat,
+                     autofocus: true,
+                     class: 'form-control',
+                     placeholder: 'latitude' %>
+    
+    <%= f.text_field :long,
+                     autofocus: true,
+                     class: 'form-control',
+                     placeholder: 'longitude' %>
+
+    <%= f.submit 'Submit', class: 'form-control btn btn-success' %>
+  <% end %>
+</div>

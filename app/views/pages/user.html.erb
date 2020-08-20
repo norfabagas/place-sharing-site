@@ -8,5 +8,5 @@
 
 <hr>
 <div class="container">
-  <%= render partial: 'pages/places', :locals => { places: @user.places, has_pagination: false } %>
+  <%= render partial: 'pages/places', :locals => { places: @user.places.order('created_at DESC'), has_pagination: false } %>
 </div>

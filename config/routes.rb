@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/following', to: 'pages#following', as: 'following'
   get '/find-users', to: 'pages#find_users', as: 'find_users'
 
+  resources :places, except: [:index]
+
   # place this url below for non-ambiguous routing
   get '/:username', to: 'pages#profile', as: 'profile_page'
 end

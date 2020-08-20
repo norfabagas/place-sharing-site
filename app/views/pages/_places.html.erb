@@ -1,19 +1,32 @@
 <% places.each do |place| %>
 <div class="card post-grid">
+
   <div class="card-title">
     <h5>
-    <%= place.description %>
+      <%= link_to "#{place.description}", place_path(place) %>
     </h5>
   </div>
+
+  <% if request.path == "/profile" %>
+  <div class="card-subtitle">
+    <%= link_to "Edit", edit_place_path(place), class: 'btn btn-success' %>
+    <%= link_to "Delete", place_path(place), method: :delete, class: 'btn btn-danger' %>
+  </div>
+  <% end %>
+
   <div class="card-body">
     <%= place.lat %>
     <%= place.long %>
   </div>
+  
   <div class="card-footer">
     Shared by: <%= get_profile place.user.username %> <%= get_informative_time(place.created_at) %>
   </div>
+
 </div>
+
 <% end %>
+
 <% if has_pagination %>
   <%= paginate places %>
 <%end %>

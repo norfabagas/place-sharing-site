@@ -4,4 +4,9 @@ class Place < ApplicationRecord
 
   # Relations
   belongs_to :user
+
+  # Validation rules
+  validates :lat, presence: true
+  validates :long, presence: true
+  validates :description, presence: true
 end

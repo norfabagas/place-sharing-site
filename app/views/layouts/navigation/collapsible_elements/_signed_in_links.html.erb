@@ -1,12 +1,15 @@
 <li class="nav-item">
   <%= link_to "Find Users", find_users_path, class: 'nav-link' %>
 </li>
+
 <li class="nav-item">
   <%= link_to "Following", following_path, class: 'nav-link' %>
 </li>
+
 <li class="nav-item">
   <%= link_to "Your Places", user_page_path, class: 'nav-link' %>
 </li>
+
 <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown userSettings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <%= current_user&.name %>
