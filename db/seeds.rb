@@ -20,12 +20,22 @@ def seeds_place(user)
 end
 
 def seeds_user
-  user = User.create({
+  admin = User.create({
     name: 'admin',
     username: 'admin',
     email: 'admin@mail.com',
     password: 'admin123',
     password_confirmation: 'admin123'
+  })
+
+  seeds_place admin
+
+  user = User.create({
+    name: 'user',
+    username: 'user',
+    email: 'user@mail.com',
+    password: 'user123',
+    password_confirmation: 'user123'
   })
 
   seeds_place user
