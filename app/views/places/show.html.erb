@@ -4,4 +4,8 @@
   <br>
   <h4>Location</h4>
   <p><%= @place.description %></p>
+  <h6>Latitude: <span id="lat"><%= @place.lat %></span></h6>
+  <h6>Longitude: <span id="long"><%= @place.long %></span></h6>
 </div>
+
+<div id="map" class="map" style="height: 400px; width: 100%; margin: 10px 0"></div>
