@@ -4,6 +4,25 @@
   <br>
   <h4>Profile Information</h4>
   <br>
+
+  <% if @follow %>
+    <%= link_to "- Unfollow", 
+                follow_or_unfollow_path(
+                  follower_id: current_user.id, 
+                  following_id: @user.id,
+                  url_path: request.original_url
+                ),
+                method: :post,
+                class: 'btn btn-warning' %>
+  <% else %>
+    <%= link_to  "+ Follow",
+                  follow_or_unfollow_path(
+                    follower_id: current_user.id,
+                    following_id: @user.id,
+                    url_path: request.original_url
+                  ), method: :post,
+                  class: 'btn btn-success' %>
+  <% end %>
   <%= render partial: 'pages/profile_card', :locals => { user: @user } %>
 </div>
 
