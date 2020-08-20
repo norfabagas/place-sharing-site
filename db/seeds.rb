@@ -22,6 +22,7 @@ end
 def seeds_user
   user = User.create({
     name: 'admin',
+    username: 'admin',
     email: 'admin@mail.com',
     password: 'admin123',
     password_confirmation: 'admin123'
