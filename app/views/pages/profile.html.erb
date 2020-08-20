@@ -1,5 +1,7 @@
 <div class="container">
   <br>
+  <%= link_to "< Back", :back, class: 'btn btn-info' %>
+  <br>
   <h4>Profile Information</h4>
   <br>
   <div class="card">
@@ -34,5 +36,5 @@
 <div class="container">
   <h4>Places Shared</h4>
   
-  <%= render partial: 'pages/places', :locals => { places: @user.places.page, has_paginate: true } %>
+  <%= render partial: 'pages/places', :locals => { places: @user.places.page, has_pagination: true } %>
 </div>
