@@ -31,6 +31,9 @@ gem 'dotenv-rails'
 # Devise gem for authentication
 gem 'devise'
 
+# Pagination functionality
+gem 'kaminari'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

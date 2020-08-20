@@ -1,6 +1,6 @@
 <div class="container">
   <% @places.each do |place| %>
-  <div class="card">
+  <div class="card post-grid">
     <div class="card-title">
       <%= place.description %>
     </div>
@@ -9,8 +9,10 @@
       <%= place.long %>
     </div>
     <div class="card-footer">
-      Shared by: <%= place.user.name %> <%= get_informative_time(place.created_at) %>
+      Shared by: <%= place.user.username %> <%= get_informative_time(place.created_at) %>
     </div>
   </div>
   <% end %>
+
+  <%= paginate @places %>
 </div> <!-- container -->
