@@ -5,6 +5,7 @@ class CreatePlaces < ActiveRecord::Migration[6.0]
       t.string      :lat
       t.string      :long
       t.string      :description
+      t.json        :subscriber
 
       t.timestamps
     end

@@ -29,6 +29,53 @@
                      class: 'form-control',
                      placeholder: 'longitude' %>
 
+    <% if params[:action] == 'new' %>
+    <hr>
+    <div class="card">
+      <div class="card-header bg-light">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="check-all">
+            <label class="custom-control-label text-dark" for="check-all">Choose users to share with (empty list will make your place public)</label>
+          </div>
+      </div>
+
+      <div class="card-body">
+        <% @users.each do |user| %>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input checkbox-user" id="<%= "user#{user.id}" %>" name="<%= "user#{user.id}" %>" value="<%= user.id %>">
+            <label class="custom-control-label" for="<%= "user#{user.id}" %>"><%= user.name %></label>
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+  <input type="hidden" name="subscriber">
+  
+  <% end %>
+
     <%= f.submit 'Submit', class: 'form-control btn btn-success' %>
   <% end %>
 </div>
+
+<script>
+$('#check-all').click(function () {
+  $('input[type=checkbox]').not(":disabled").prop('checked', this.checked);
+  crawlIds()
+});
+
+$('.checkbox-user').click(function () {
+  crawlIds()
+})
+
+function crawlIds() {
+  var arr = []
+  
+  for (i = 0; i < $('.checkbox-user').length; i++) {
+    if ($('.checkbox-user')[i].checked) {
+      arr.push($('.checkbox-user')[i].value)
+    }
+  }
+  $('input[name="subscriber"]').val(arr)
+}
+
+</script>

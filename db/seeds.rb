@@ -14,7 +14,8 @@ def seeds_place(user)
       user: user,
       lat: Faker::Address.latitude,
       long: Faker::Address.longitude,
-      description: Faker::Address.full_address
+      description: Faker::Address.full_address,
+      subscriber: User.where.not(:id => user.id).pluck(:id)
     })
   end
 end

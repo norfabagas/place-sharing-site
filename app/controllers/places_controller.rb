@@ -1,11 +1,24 @@
 class PlacesController < ApplicationController
+  before_action :authenticate_user!
   def new
-    p @place
     @place = current_user.places.new
+    @users = User.where.not(:id => current_user.id)
   end
 
   def create
+    subscribers = params[:subscriber]
+    ids = []
+    subscribers.split(',').each do |index|
+      ids.push(index.to_i)
+    end
+
+    if ids.count < 1
+      ids = User.where.not(:id => current_user.id).pluck(:id)
+    end
+
     @place = current_user.places.new(place_params)
+
+    @place.subscriber = ids
 
     respond_to do |format|
       if @place.save
