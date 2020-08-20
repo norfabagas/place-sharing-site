@@ -38,6 +38,16 @@ def seeds_user
     password_confirmation: 'user123'
   })
 
+  Follow.create({
+    follower_id: admin.id,
+    following_id: user.id
+  })
+  
+  Follow.create({
+    follower_id: user.id,
+    following_id: admin.id
+  })
+
   seeds_place user
 end
 
